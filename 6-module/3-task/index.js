@@ -44,7 +44,6 @@ export default class Carousel {
       let slideWidth = document.querySelector('.carousel__slide').offsetWidth;
       position += slideWidth;
       carouselInner.style.transform = `translateX(-${position}px)`;
-      console.log(slideWidth);
       if (position >= (slideWidth * slidesQuanity)) {rightButton.style.display = 'none';} 
       if (position > 0) {leftButton.style.display = '';}
     });
