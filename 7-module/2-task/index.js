@@ -30,12 +30,15 @@ export default class Modal {
       this.elem.remove();
     });
 
-    document.addEventListener('keydown', (event) => {
+    let keyClose = (event) => {
       if (event.code == 'Escape') {
         document.body.classList.remove('is-modal-open');
         this.elem.remove();
+        document.removeEventListener('keydown', keyClose);
       }
-    });
+    };
+
+    document.addEventListener('keydown', keyClose);
   }
 
   open() {
