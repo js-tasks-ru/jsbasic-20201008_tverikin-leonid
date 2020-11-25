@@ -3,13 +3,14 @@ export default class StepSlider {
    
     this.elem = document.createElement('div');
     this.elem.classList.add('slider');
+    let initialSliderPosition = 100 / (steps - 1) * (value + 1); 
     this.elem.innerHTML = `
-    <div class="slider__thumb" style="left: 50%;">
-      <span class="slider__value">2</span>
+    <div class="slider__thumb" style="left: ${initialSliderPosition}%;">
+      <span class="slider__value">${value + 1}</span>
        </div>
 
       <!--Заполненная часть слайдера-->
-      <div class="slider__progress" style="width: 50%;"></div>
+      <div class="slider__progress" style="width: ${initialSliderPosition}%;"></div>
         <!--Шаги слайдера-->
         <div class="slider__steps">
         </div>
@@ -20,7 +21,7 @@ export default class StepSlider {
       let span = document.createElement('span');
       sliderSteps.append(span);
     }
-    sliderSteps.children[0].classList.add('slider__step-active')
+    sliderSteps.children[value].classList.add('slider__step-active');
 
     let sliderThumb = this.elem.querySelector('.slider__thumb');
     let sliderProgress = this.elem.querySelector('.slider__progress');

@@ -39,7 +39,7 @@ export default class ProductGrid {
     
     if (('noNuts' in this.filters) && (this.filters['noNuts'] == true)) {
       sortedProducts = sortedProducts.filter((item)=>{
-        return (!('nuts' in item) && !(item['nuts'] == true)); 
+        return (!('nuts' in item) || !(item['nuts'] == true)); 
       });}
 
     if (('vegeterianOnly' in this.filters) && (this.filters['vegeterianOnly'] == true)) {
